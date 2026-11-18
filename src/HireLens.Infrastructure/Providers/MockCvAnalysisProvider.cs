@@ -16,7 +16,9 @@ public partial class MockCvAnalysisProvider : ICvAnalysisProvider
     {
         var ats = r.Ats;
         int metrics = Metric().Matches(r.CvText).Count, verbs = Verb().Matches(r.CvText).Count;
-        int cv = Math.Clamp((int)Math.Round(ats.Checks.Sum(c => c.Points) * 0.9 + Math.Min(metrics, 6) * 2.0 + Math.Min(verbs, 8) * 1.0), 0, 100);
+        int maxChecks = Math.Max(1, ats.Checks.Sum(c => c.MaxPoints));
+        // structure 60 + quantified impact 24 + action verbs 16
+        int cv = Math.Clamp((int)Math.Round(60.0 * ats.Checks.Sum(c => c.Points) / maxChecks + Math.Min(metrics, 6) * 4.0 + Math.Min(verbs, 8) * 2.0), 0, 100);
         int fit = Math.Clamp((int)Math.Round(ats.KeywordCoveragePct * 0.8 + cv * 0.2), 0, 100);
 
         var o = new AnalysisOutput

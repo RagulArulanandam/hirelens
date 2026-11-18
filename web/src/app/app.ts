@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthService } from './core/auth.service';
+import { ToastService } from './core/http';
+import { ThemeService } from './core/theme.service';
+import { LogoComponent } from './shared/ui';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.scss',
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, LogoComponent],
   templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('hirelens-web');
+  auth = inject(AuthService);
+  theme = inject(ThemeService);
+  toast = inject(ToastService);
 }

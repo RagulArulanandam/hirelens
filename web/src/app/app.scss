@@ -1,0 +1,9 @@
+.topbar { display: flex; align-items: center; gap: 18px; padding: 10px 24px; background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; flex-wrap: wrap; }
+.brand { display: inline-flex; } .grow { flex: 1; }
+nav { display: flex; gap: 4px; }
+nav a { padding: 7px 14px; border-radius: 8px; color: var(--muted); font-weight: 600; text-decoration: none; }
+nav a:hover { background: var(--surface-2); color: var(--text); }
+nav a.active { background: var(--surface-2); color: var(--brand-2); }
+.icon { background: none; border: 1px solid var(--border); border-radius: 8px; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-size: 1.1rem; }
+.user { color: var(--muted); font-size: .9rem; }
+@media (max-width: 640px) { .user { display: none; } .topbar { padding: 8px 12px; gap: 8px; } }

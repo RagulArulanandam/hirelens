@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --brand: #3730a3; --brand-2: #4f46e5; --accent: #0d9488;
+  --bg: #f4f5fb; --surface: #ffffff; --surface-2: #f8f9fe; --text: #1e1b4b; --muted: #6b7194; --border: #e1e3f0;
+  --track: #e6e8f4; --good: #0f7b5f; --good-bg: #d9f5ec; --warn: #a15c07; --warn-bg: #fdf0d5; --bad: #b42343; --bad-bg: #fde3e8;
+  --shadow: 0 1px 3px rgba(30, 27, 75, .08), 0 8px 24px rgba(30, 27, 75, .06); --radius: 14px;
+}
+:root[data-theme='dark'] {
+  --brand: #a5b4fc; --brand-2: #818cf8; --accent: #2dd4bf;
+  --bg: #0f1020; --surface: #181a30; --surface-2: #1f2240; --text: #e8e9ff; --muted: #9a9fc7; --border: #2b2e52;
+  --track: #2b2e52; --good: #4ade9c; --good-bg: #0e3a2c; --warn: #f5b84a; --warn-bg: #3d2f0f; --bad: #ff7a93; --bad-bg: #44172a;
+  --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .3);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font-family: Inter, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; transition: background .2s, color .2s; }
+h1, h2, h3 { margin: 0 0 .5rem; line-height: 1.2; }
+h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; } h3 { font-size: 1rem; }
+a { color: var(--brand-2); text-decoration: none; } a:hover { text-decoration: underline; }
+.page { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; margin-bottom: 20px; }
+.muted { color: var(--muted); } .small { font-size: .85rem; }
+.row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; } .grow { flex: 1; } .between { justify-content: space-between; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+label { display: block; font-weight: 600; font-size: .85rem; margin-bottom: 6px; }
+input, textarea, select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--text); font: inherit; }
+input:focus, textarea:focus, select:focus { outline: 2px solid var(--brand-2); outline-offset: 1px; }
+textarea { min-height: 180px; resize: vertical; }
+.field { margin-bottom: 16px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; border: 1px solid transparent; font: inherit; font-weight: 600; cursor: pointer;
+  background: linear-gradient(135deg, var(--brand-2), var(--accent)); color: #fff; transition: transform .1s, opacity .2s; }
+.btn:hover { transform: translateY(-1px); } .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn.danger { background: var(--bad-bg); color: var(--bad); border-color: transparent; }
+.btn.sm { padding: 5px 12px; font-size: .85rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: .92rem; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+tr.clickable { cursor: pointer; } tr.clickable:hover, tr.selected { background: var(--surface-2); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { padding: 3px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; background: var(--surface-2); border: 1px solid var(--border); }
+.chip.ok { background: var(--good-bg); color: var(--good); border-color: transparent; } .chip.miss { background: var(--bad-bg); color: var(--bad); border-color: transparent; }
+.error { color: var(--bad); background: var(--bad-bg); padding: 10px 14px; border-radius: 10px; margin-bottom: 14px; }
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--bad); color: #fff; padding: 12px 20px; border-radius: 10px; box-shadow: var(--shadow); z-index: 50; max-width: 90vw; }
+.stat { font-size: 1.8rem; font-weight: 700; }
+.spinner { width: 16px; height: 16px; border: 2px solid var(--track); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 640px) { .page { padding: 16px 12px 40px; } th, td { padding: 8px 6px; } }
+@media print {
+  .no-print, header.topbar { display: none !important; }
+  body { background: #fff; color: #000; --surface: #fff; --surface-2: #fff; --text: #000; --muted: #444; --border: #ccc; }
+  .card { box-shadow: none; break-inside: avoid; }
+  .page { max-width: none; padding: 0; }
+}
