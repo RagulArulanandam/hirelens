@@ -1,0 +1,25 @@
+Alex Morgan (synthetic sample, not a real person)
+alex.morgan@example.com | +44 7700 900123 | London
+
+Summary
+Senior software engineer with 8 years of experience building C# and ASP.NET Core platforms.
+
+Experience
+Senior .NET Developer, Contoso Ltd - Jan 2019 to Present
+- Built REST APIs with ASP.NET Core and Entity Framework Core on SQL Server, serving 2M requests per day
+- Led migration to microservices using RabbitMQ, cutting deploy time by 60%
+- Delivered Angular and TypeScript dashboards used by 400 staff
+- Wrote xUnit test suites and introduced TDD; coverage rose from 35% to 85%
+- Deployed to Azure with Docker and GitHub Actions CI/CD
+- Mentored 4 junior developers in an Agile / Scrum team
+
+.NET Developer, Fabrikam Inc - Jun 2015 to Dec 2018
+- Developed C# services, applied clean architecture and design patterns
+- Optimised SQL queries, reducing report time from 40s to 4s
+- Strong problem solving and communication with stakeholders
+
+Education
+BSc Computer Science, University of Example, 2015
+
+Skills
+C#, .NET, ASP.NET, SQL Server, Angular, TypeScript, Azure, Docker, Git, xUnit, RabbitMQ

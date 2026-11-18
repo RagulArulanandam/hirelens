@@ -1,0 +1,17 @@
+Senior .NET Developer
+
+We are looking for a Senior .NET Developer to join our platform team.
+
+Responsibilities
+- Design and build REST APIs with C# and ASP.NET Core
+- Model data with Entity Framework Core and SQL Server
+- Build front-ends with Angular and TypeScript
+- Write unit tests with xUnit and practise TDD
+- Deploy on Azure using Docker and CI/CD pipelines (GitHub Actions)
+- Mentor junior developers and take part in Agile / Scrum ceremonies
+
+Requirements
+- 5+ years of C# and .NET experience
+- Strong SQL Server skills and clean architecture knowledge
+- Experience with microservices, RabbitMQ or Kafka
+- Excellent communication and problem solving
