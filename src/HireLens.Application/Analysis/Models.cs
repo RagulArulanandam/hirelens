@@ -34,13 +34,15 @@ public class AtsReport
     public List<AtsCheck> Checks { get; set; } = new();
 }
 
-public record ProviderRequest(string JdText, string CvText, AtsReport Ats);
+public record ProviderRequest(string JdText, string CvText, AtsReport Ats, string Model);
 
 public record ProviderResult(AnalysisOutput Output, int InputTokens, int OutputTokens, string Model);
 
 public interface ICvAnalysisProvider
 {
+    /// <summary>Default model name used for caching when no admin override exists.</summary>
     string ModelName { get; }
+    bool UsesModelOverride { get; }
     Task<ProviderResult> AnalyseAsync(ProviderRequest request, CancellationToken ct = default);
 }
 

@@ -8,3 +8,5 @@
 - Tests swap SQL Server for EF InMemory via a WebApplicationFactory override.
 - PDF extraction uses the official 'PdfPig' package (UglyToad.PdfPig id only has a custom prerelease on NuGet).
 - ATS score = keywords 60 + sections 15 + contact 10 + dates 5 + format 10; keywords = curated skill vocabulary + repeated JD terms.
+- Provider chosen at startup: mock if Anthropic:ApiKey empty, else Claude. Model override stored in AppSettings (admin).
+- Deterministic ATS score always overrides the LLM's atsScore; verdict derived from fitScore (>=75 strong, >=50 possible).
