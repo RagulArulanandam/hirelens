@@ -10,3 +10,5 @@
 - ATS score = keywords 60 + sections 15 + contact 10 + dates 5 + format 10; keywords = curated skill vocabulary + repeated JD terms.
 - Provider chosen at startup: mock if Anthropic:ApiKey empty, else Claude. Model override stored in AppSettings (admin).
 - Deterministic ATS score always overrides the LLM's atsScore; verdict derived from fitScore (>=75 strong, >=50 possible).
+- Analysis API is two-step (create with JD, then one POST per CV) so the UI shows per-CV progress and the per-minute rate limit applies to AI calls.
+- HR users see only their own analyses; Admin sees all. Uploaded CV originals are stored under uploads/ for the retention service.
