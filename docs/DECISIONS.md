@@ -4,3 +4,5 @@
 - Angular app in /web, API in /src.
 - Identity user (AppUser) lives in Infrastructure to keep Domain dependency-free.
 - Packages pinned to 10.* for EF/Identity/JWT (latest NuGet targets net11 previews).
+- Admin password and JWT key generated randomly into user-secrets (read with: dotnet user-secrets list --project src/HireLens.Api).
+- Tests swap SQL Server for EF InMemory via a WebApplicationFactory override.

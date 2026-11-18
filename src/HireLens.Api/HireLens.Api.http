@@ -1,6 +1,0 @@
-@HireLens.Api_HostAddress = http://localhost:5110
-
-GET {{HireLens.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
