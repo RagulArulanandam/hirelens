@@ -133,6 +133,14 @@ public class AnalysesController(AppDbContext db, ITextExtractor extractor, CvAna
         return ToDetail(a);
     }
 
+    [HttpGet("{id:guid}/export")]
+    public async Task<IActionResult> Export(Guid id, CancellationToken ct)
+    {
+        var a = await Visible.AsNoTracking().Include(x => x.Results).FirstOrDefaultAsync(x => x.Id == id, ct) ?? throw new KeyNotFoundException("Analysis not found.");
+        var bytes = Services.PdfExporter.Render(ToDetail(a));
+        return File(bytes, "application/pdf", $"HireLens-{a.Id:N}.pdf");
+    }
+
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
     {

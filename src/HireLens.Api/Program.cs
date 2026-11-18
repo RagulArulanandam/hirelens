@@ -19,7 +19,7 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .Enrich.FromLogContext()
     .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {CorrelationId} {Message:lj}{NewLine}{Exception}")
     .WriteTo.File("logs/hirelens-.log", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 14,
-        outputTemplate: "{Timestamp:o} [{Level:u3}] {CorrelationId} {Message:lj}{NewLine}{Exception}"));
+        outputTemplate: "{Timestamp:o} [{Level:u3}] {CorrelationId} {Message:lj}{NewLine}{Exception}"), preserveStaticLogger: true);
 
 var cfg = builder.Configuration;
 builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlServer(cfg.GetConnectionString("Default")));
@@ -43,6 +43,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddAuthorization();
 builder.Services.AddSingleton<JwtService>();
 builder.Services.AddHireLensAnalysis(cfg);
+builder.Services.AddHostedService<RetentionService>();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddControllers();
 builder.Services.AddCors(o => o.AddDefaultPolicy(p => p
